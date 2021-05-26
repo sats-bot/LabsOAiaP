@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+string Reverse(string, int);
+
+int main()
+{
+    string source = "12345";
+    source = Reverse(source, 0);
+    cout << source;
+    return 0;
+}
+
+string Reverse(string source, int index)
+{
+    if (index > source.length() / 2)
+    {
+        return source;
+    }
+    else
+    {
+        char temp = source[index];
+        source[index] = source[source.length() - index - 1];
+        source[source.length() - index - 1] = temp;
+        index++;
+        return Reverse(source, index);
+    }
+}
